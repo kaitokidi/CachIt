@@ -1,0 +1,1 @@
+Aquest es un text de prova per comprovar si el programa funciona correctament, si vols posar un altre text, modifica l'arxiu text.txt que hi ha a la carpeta text.

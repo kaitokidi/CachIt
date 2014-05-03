@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/font"/>
+    <qresource prefix="/pics">
+        <file>pics/background.png</file>
+    </qresource>
+    <qresource prefix="/text">
+        <file>text/text.txt</file>
+    </qresource>
+</RCC>
