@@ -8,6 +8,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <iostream>
+#include <stdexcept>
 #include "wordblock.h"
 #include "background.h"
 #include "SFML/Window.hpp"
@@ -34,6 +35,7 @@ private:
     std::ifstream in;
     sf::RenderWindow& window;
     std::queue<Wordblock> words;
+    std::wstring utf8_to_utf16(const std::string& utf8);
     int topLimit, botLimit, windowHeight, windowWidth, actLetter, CharacterSize;
 
     bool okToPush(Wordblock word, std::queue<Wordblock>& words);
