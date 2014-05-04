@@ -17,7 +17,7 @@ en els següents links teniu informació de com utilitzar-ho en Visual studio
 o per els que usen Linux (http://www.sfml-dev.org/tutorials/2.1/start-linux.php), 
 i per els que utilitzin MAC OS (http://www.sfml-dev.org/tutorials/2.1/start-osx.php).
 
-PD: actualment no admet les paraules accentuades, així que és idòni per el text en anglès, 
-quant tingui una mica de temps (si n'arribo a tenir mai) intentaré solucionar aquest problema.
+PD: El JOC JA FUNCIONA AMB PARAULES ACCENTUADES!!! (Pot no semblar-ho, però el mar de codificacions
+i de sistemes de tractament de strings per els diferents formats de text es un merder dels grans...).
 
 Passeus-ho bé!
