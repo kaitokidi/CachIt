@@ -1,3 +1,3 @@
-Aquest és un text de prova, si vols posar un altre text, modifica l'arxiu text.txt que hi ha a la carpeta anomenada text.
+Aquest és el text de prova, si en vols un altre, modifica l'arxiu text.txt que hi ha a la carpeta anomenada text.
 Bé companys, aquí comença la nostre aventura va dir el petit drac de color maragda, no perdem més temps,
 i fem via cap a aquest futur brillant, que s'obre davant nostre.

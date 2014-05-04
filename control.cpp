@@ -7,19 +7,14 @@
 Control::Control(sf::RenderWindow &windowg) :window(windowg), bg(windowg, "pics/background.png"), in("text/text.txt"){
 
     wb = Wordblock("Start");
-//std::cout <<"wb de start = " << wb.getotext() << std::endl;
     wb.setPositionX(windowHeight/2);
     words.push(wb);
-//std::cout << "paraula " << words.front().getotext() << std::endl;
-//std::cout << "lets dive into the bucle" << std::endl;
 for(int i = 0; i < words.front().getotext().size(); ++i){
     //std::cout << "lletra " << i << " : " << words.front().getotext()[i]  << std::endl;
 }
 std::string miau = "sí";
 wchar_t wc = 'í';
 miau += wc;
-//std::cout << miau << " " << miau.size() << std::endl;
-//std::cout << miau[0] << " " << miau[1] << " " << miau[2] << std::endl;
     srand(time(NULL));
     actLetter = 0;
     windowWidth = window.getSize().x;
@@ -38,8 +33,7 @@ miau += wc;
 int Control::handler(){
     int ret = 0;
     sf::Event event;
-//char a = 'í';
-std::string s,e;
+    std::string s,e;
     while(window.pollEvent(event)){
 
         switch (event.type) {
@@ -48,21 +42,27 @@ std::string s,e;
                 window.close();
                 break;
 
-            case sf::Event::TextEntered:
-
-//            std::cout << a <<" " << event.text.unicode << " " << (char) event.text.unicode  << " " << words.front().getotext()  << " "  << words.front().getotext()[actLetter] << std::endl;
-//            s = "s";
-  //          s += "í";
-       //     std::cout << "esa " << s << std::endl;
-                if(event.text.unicode == 9) { /*tab PRESSED */ if(words.size() > 0)words.pop(); actLetter=0; ret = 0;}
-                else if(event.text.unicode == 13) { /*RET PRESSED */
+            case  sf::Event::KeyPressed:
+                if (event.key.code == sf::Keyboard::Escape) {
+                    window.close();
                 }
-                else if(event.text.unicode == words.front().getotext()[actLetter] ){
+                break;
+
+            case sf::Event::TextEntered:
+                wchar_t teclaApretada = event.text.unicode;
+
+                //std::cerr << words.front().getotext()[actLetter] <<"          " << (int)words.front().getotext()[actLetter] << std::endl;
+                if(teclaApretada == 9) { /*tab PRESSED */ if(words.size() > 0)words.pop(); actLetter=0; ret = 0;}
+                else if(teclaApretada == 13) { /*RET PRESSED */
+                }
+                else if(teclaApretada == words.front().getotext()[actLetter]){
                     s = e;
-                    s += event.text.unicode;
+                    if((int)words.front().getotext()[actLetter] == -61) s += words.front().getotext()[actLetter];
+                    else s += teclaApretada;
                     words.front().addntext(s);
                     ret = 1;
                     if(words.front().getotext() == words.front().getntext()) {
+                        std::cerr << "OK " << words.front().getotext() << " - " << words.front().getntext() << std::endl;
                         ret = 3; /*RET = 3 MEANS THE WORD HAS BEEN WRITTEN CORRECTLY*/
                         words.pop();
                         actLetter = 0;
@@ -70,23 +70,17 @@ std::string s,e;
                     else {
                         ++actLetter;
                         words.front().setPes(words.front().getPes()-1);
+                        std::cerr << words.front().getotext() << " - " << words.front().getntext() << std::endl;
                     }
                 }
-                else if((event.text.unicode == 8) and ((words.front().getPes()) > 0)) {
+                else if((teclaApretada == 8) and ((words.front().getPes()) > 0)) {
                     words.front().subntext();
                     --actLetter;
                 }
                 else {
-                    if(ret != 1)ret = 2; /*RET = 2 MEANS THERE HAVE failed IN WRITTING*/
+                    if(ret != 1)ret = 2; /*RET = 2 MEANS IT HAVE failed ON WRITTING*/
                 }
 
-                break;
-            case  sf::Event::KeyPressed:
-                if (event.key.code == sf::Keyboard::N) {
-                }
-                break;
-
-            default:
                 break;
         }
     }

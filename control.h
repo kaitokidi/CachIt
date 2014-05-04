@@ -28,6 +28,7 @@ public:
     Control(sf::RenderWindow &windowg);
 
 private:
+    bool accent;
     Wordblock wb;
     sf::Font font;
     sf::Text text;
