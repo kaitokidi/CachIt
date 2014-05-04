@@ -10,7 +10,7 @@ amb el qual estàs jugant, et permet la varietat de textos per llegir durant el 
 mentre que per altra banda aprens a teclejar més depressa, que també és una qualitat interessant
 avui en dia.
 
-Per executar aquest Currículum és necessari tenir instalades les llibreries de SFML 
+Per executar aquest Joc és necessari tenir instalades les llibreries de SFML 
 A ubuntu 14 ja estan instal·lades per defecte, si no disposeu d'aquest sistema operatiu, 
 en els següents links teniu informació de com utilitzar-ho en Visual studio 
 (http://www.sfml-dev.org/tutorials/2.1/start-vc.php) per els que usen windows, 
